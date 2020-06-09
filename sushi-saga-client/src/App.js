@@ -36,15 +36,29 @@ class App extends Component {
 
   deleteSushi = (id) => {
     console.log(id)
-    let targetSushi = this.state.newSushis.filter(sushi => sushi.id === id)
+    let filteredSushi = this.state.newSushis.filter(sushi => sushi.id !== id)
+    this.setState({newSushis: filteredSushi})
+}
 
+wasSushiEaten = (id) => {
+  let deletedSushi = this.state.newSushis.filter(sushi => sushi.id === id)
+  if (this.state.newSushis.includes(deletedSushi)){
+    return true 
+  } else {
+    return false 
   }
+}
 
 
   render() {
     return (
       <div className="app">
-        <SushiContainer newSushis={this.state.newSushis} deleteSushi={this.deleteSushi} addSushis={this.addSushis}/>
+        <SushiContainer 
+        newSushis={this.state.newSushis} 
+        deleteSushi={this.deleteSushi} 
+        addSushis={this.addSushis}
+        wasSushiEaten={this.wasSushiEaten}
+        />
         <Table />
       </div>
     );

@@ -6,7 +6,7 @@ const Sushi = (props) => {
       <div className="plate" 
            onClick={/* Give me a callback! */() => props.deleteSushi(props.id)}>
         { 
-          /* Tell me if this sushi has been eaten! */ 
+          /* Tell me if this sushi has been eaten! */
           false ?
             null
           :

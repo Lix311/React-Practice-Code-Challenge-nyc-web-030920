@@ -8,6 +8,7 @@ const SushiContainer = (props) => {
       <div className="belt">
         { props.newSushis.map(newSushi => 
         <Sushi 
+        wasSushiEaten={this.wasSushiEaten}
         deleteSushi={props.deleteSushi}
         key={newSushi.id}
         {...newSushi}
